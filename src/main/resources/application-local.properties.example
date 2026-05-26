@@ -1,0 +1,10 @@
+# ==========================================================================
+# PLANTILLA. Copia este archivo como "application-local.properties" y rellena
+# tus credenciales reales. El archivo real NO se versiona (ver .gitignore).
+# ==========================================================================
+
+spring.datasource.url=jdbc:postgresql://HOST:5432/NOMBRE_BD?sslmode=require
+spring.datasource.username=TU_USUARIO
+spring.datasource.password=TU_PASSWORD
+
+jwt.secret=tu-clave-secreta-de-al-menos-32-caracteres

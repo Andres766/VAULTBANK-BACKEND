@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: vaultbank-postgres
+    environment:
+      POSTGRES_DB: vaultbank
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - vaultbank_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: vaultbank-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@vaultbank.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+  backend:
+    build: .
+    container_name: vaultbank-backend
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/vaultbank
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      JWT_SECRET: clave-secreta-super-segura-vaultbank-2026-min32chars!!
+      JWT_EXPIRATION: 3600000
+      BANCO_NOMBRE: VaultBank
+      GMF_TASA: 0.004
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  vaultbank_pgdata:

@@ -1,0 +1,24 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Credenciales y entorno (NO subir) ###
+application-local.properties
+**/application-local.properties
+.env
+*.env
+
+### IDE ###
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+### Logs ###
+*.log
+
+### OS ###
+.DS_Store
