@@ -4,7 +4,6 @@ import com.vaultbank.dto.request.LoginRequest;
 import com.vaultbank.dto.request.RegisterRequest;
 import com.vaultbank.dto.response.AuthResponse;
 import com.vaultbank.model.*;
-import com.vaultbank.model.enums.PerfilRiesgo;
 import com.vaultbank.model.enums.Rol;
 import com.vaultbank.repository.UsuarioRepository;
 import com.vaultbank.security.JwtService;
@@ -94,7 +93,6 @@ public class AuthServiceImpl implements IAuthService {
                     .ingresosMensuales(req.getIngresosMensuales() != null
                             ? BigDecimal.valueOf(req.getIngresosMensuales()) : BigDecimal.ZERO)
                     .ocupacion(req.getOcupacion())
-                    .perfilRiesgo(PerfilRiesgo.MODERADO)
                     .build();
         };
     }

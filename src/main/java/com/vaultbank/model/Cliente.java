@@ -1,6 +1,5 @@
 package com.vaultbank.model;
 
-import com.vaultbank.model.enums.PerfilRiesgo;
 import com.vaultbank.model.productos.ProductoFinanciero;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -24,9 +23,6 @@ public class Cliente extends Usuario {
     private BigDecimal ingresosMensuales;
 
     private String ocupacion;
-
-    @Enumerated(EnumType.STRING)
-    private PerfilRiesgo perfilRiesgo;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @lombok.Builder.Default
